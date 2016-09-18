@@ -1,6 +1,6 @@
 /system/*
 /image/*
-config.php
+/config.php
 admin/config.php
 #Readme.txt
 
