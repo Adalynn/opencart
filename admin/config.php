@@ -1,4 +1,5 @@
 <?php
+//ANI
 // HTTP
 define('HTTP_SERVER', 'http://localhost/opencart_2/admin/');
 define('HTTP_CATALOG', 'http://localhost/opencart_2/');
