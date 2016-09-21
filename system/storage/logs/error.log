@@ -1,2 +1,52 @@
 2016-09-18 17:53:44 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\wamp\www\opencart_2\system\library\mail.php on line 158
 2016-09-18 17:56:10 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\wamp\www\opencart_2\system\library\mail.php on line 158
+2016-09-24 18:10:38 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 378
+2016-09-24 18:10:38 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 385
+2016-09-24 18:10:38 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 396
+2016-09-24 18:12:14 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 378
+2016-09-24 18:12:14 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 385
+2016-09-24 18:12:14 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 396
+2016-09-24 18:14:41 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 378
+2016-09-24 18:14:41 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 385
+2016-09-24 18:14:41 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 396
+2016-09-24 18:18:47 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 384
+2016-09-24 18:18:47 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 391
+2016-09-24 18:18:47 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 402
+2016-09-24 18:20:48 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 384
+2016-09-24 18:20:48 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 391
+2016-09-24 18:20:48 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 402
+2016-09-24 18:25:37 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 384
+2016-09-24 18:25:37 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 391
+2016-09-24 18:25:37 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 402
+2016-09-24 18:28:51 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 384
+2016-09-24 18:28:51 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 391
+2016-09-24 18:28:51 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 402
+2016-09-24 18:31:03 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 384
+2016-09-24 18:31:03 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 391
+2016-09-24 18:31:03 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 402
+2016-09-24 18:39:39 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 379
+2016-09-24 18:39:39 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 386
+2016-09-24 18:39:39 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 397
+2016-09-24 18:41:59 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 379
+2016-09-24 18:41:59 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 386
+2016-09-24 18:41:59 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 397
+2016-09-24 18:46:33 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 379
+2016-09-24 18:46:33 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 383
+2016-09-24 18:46:33 - PHP Warning:  array_slice() expects parameter 1 to be array, null given in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 383
+2016-09-24 18:46:33 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 397
+2016-09-24 18:51:12 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 379
+2016-09-24 18:51:12 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 383
+2016-09-24 18:51:12 - PHP Warning:  array_slice() expects parameter 1 to be array, null given in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 383
+2016-09-24 18:51:12 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 397
+2016-09-24 18:52:24 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 380
+2016-09-24 18:52:24 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 384
+2016-09-24 18:52:24 - PHP Warning:  array_slice() expects parameter 1 to be array, null given in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 384
+2016-09-24 18:52:24 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 398
+2016-09-24 18:53:54 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 380
+2016-09-24 18:53:54 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 384
+2016-09-24 18:53:54 - PHP Warning:  array_slice() expects parameter 1 to be array, null given in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 384
+2016-09-24 18:53:54 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 398
+2016-09-24 18:56:05 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 382
+2016-09-24 18:56:05 - PHP Notice:  Undefined offset: 0 in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 386
+2016-09-24 18:56:05 - PHP Warning:  array_slice() expects parameter 1 to be array, null given in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 386
+2016-09-24 18:56:05 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\wamp\www\opencart_2\admin\controller\extension\modification.php on line 400

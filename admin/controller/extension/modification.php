@@ -228,112 +228,153 @@ class ControllerExtensionModification extends Controller {
 										// Search and replace
 										if ($operation->getElementsByTagName('search')->item(0)->getAttribute('regex') != 'true') {
 											// Search
-											$search = $operation->getElementsByTagName('search')->item(0)->textContent;
-											$trim = $operation->getElementsByTagName('search')->item(0)->getAttribute('trim');
-											$index = $operation->getElementsByTagName('search')->item(0)->getAttribute('index');
+											 // Search
+											 $search = $operation->getElementsByTagName('search')->item(0)->textContent;
+											 $trim = $operation->getElementsByTagName('search')->item(0)->getAttribute('trim');
+											 $index = $operation->getElementsByTagName('search')->item(0)->getAttribute('index');
+											 $multiline = ($operation->getElementsByTagName('search')->item(0)->getAttribute('multiline') == 'true');
+											 $ignorespaces = ($operation->getElementsByTagName('search')->item(0)->getAttribute('ignorespaces') == 'true');
 
-											// Trim line if no trim attribute is set or is set to true.
-											if (!$trim || $trim == 'true') {
+											 // Trim line if no trim attribute is set or is set to true.
+											 if (!$trim || $trim == 'true') {
 												$search = trim($search);
-											}
+											 }
 
-											// Add
-											$add = $operation->getElementsByTagName('add')->item(0)->textContent;
-											$trim = $operation->getElementsByTagName('add')->item(0)->getAttribute('trim');
-											$position = $operation->getElementsByTagName('add')->item(0)->getAttribute('position');
-											$offset = $operation->getElementsByTagName('add')->item(0)->getAttribute('offset');
+											 // Explode the search on newlines if multiline.
+											 if ($multiline) {
+												$searchlines = explode("\n", $search);
 
-											if ($offset == '') {
+												if ($ignorespaces) {
+												   foreach ($searchlines as $num => $line)  $searchlines[$num] = preg_replace('/\s/', "", $line);
+												}
+											 }
+
+											 // Add
+											 $add = $operation->getElementsByTagName('add')->item(0)->textContent;
+											 $trim = $operation->getElementsByTagName('add')->item(0)->getAttribute('trim');
+											 $position = $operation->getElementsByTagName('add')->item(0)->getAttribute('position');
+											 $offset = $operation->getElementsByTagName('add')->item(0)->getAttribute('offset');
+
+											 if ($offset == '') {
 												$offset = 0;
-											}
+											 }
 
-											// Trim line if is set to true.
-											if ($trim == 'true') {
+											 // Trim line if is set to true.
+											 if ($trim == 'true') {
 												$add = trim($add);
-											}
+											 }
 
-											// Log
-											$log[] = 'CODE: ' . $search;
+											 // Log
+											 $log[] = 'CODE: ' . $search;
 
-											// Check if using indexes
-											if ($index !== '') {
+											 // Check if using indexes
+											 if ($index !== '') {
 												$indexes = explode(',', $index);
-											} else {
+											 } else {
 												$indexes = array();
-											}
+											 }
 
-											// Get all the matches
-											$i = 0;
+											 // Get all the matches
+											 $i = 0;
 
-											$lines = explode("\n", $modification[$key]);
+											 $lines = explode("\n", $modification[$key]);
 
-											for ($line_id = 0; $line_id < count($lines); $line_id++) {
+											 for ($line_id = 0; $line_id < count($lines); $line_id++) {
 												$line = $lines[$line_id];
 
 												// Status
 												$match = false;
 
 												// Check to see if the line matches the search code.
-												if (stripos($line, $search) !== false) {
-													// If indexes are not used then just set the found status to true.
-													if (!$indexes) {
-														$match = true;
-													} elseif (in_array($i, $indexes)) {
-														$match = true;
-													}
+												if ($multiline) {
+												   $match = true;
 
-													$i++;
+												   foreach ($searchlines as $num => $line2) {
+													  if ($line_id + $num >= count($lines)) {
+														 $match = false;
+
+														 break;
+													  }
+
+													  $line3 = $lines[$line_id + $num];
+													  if ($ignorespaces)  $line3 = preg_replace('/\s/', "", $line3);
+
+													  if ($line2 !== $line3) {
+														 $match = false;
+
+														 break;
+													  }
+												   }
+												} else if (stripos($line, $search) !== false) {
+												   // If indexes are not used then just set the found status to true.
+												   if (!$indexes) {
+													  $match = true;
+												   } elseif (in_array($i, $indexes)) {
+													  $match = true;
+												   }
+
+												   $i++;
 												}
 
 												// Now for replacing or adding to the matched elements
 												if ($match) {
-													switch ($position) {
-														default:
-														case 'replace':
-															$new_lines = explode("\n", $add);
+												   switch ($position) {
+													  default:
+													  case 'replace':
+														 $new_lines = explode("\n", $add);
 
-															if ($offset < 0) {
-																array_splice($lines, $line_id + $offset, abs($offset) + 1, array(str_replace($search, $add, $line)));
+														 if ($offset < 0) {
+															array_splice($lines, $line_id + $offset, abs($offset) + ($multiline ? count($searchlines) : 1), array(str_replace($search, $add, $line)));
 
-																$line_id -= $offset;
-															} else {
-																array_splice($lines, $line_id, $offset + 1, array(str_replace($search, $add, $line)));
-															}
+															$line_id -= $offset;
+														 } else {
+															array_splice($lines, $line_id, $offset + ($multiline ? count($searchlines) : 1), array(str_replace($search, $add, $line)));
+														 }
 
-															break;
-														case 'before':
-															$new_lines = explode("\n", $add);
+														 break;
+													  case 'before':
+														 $new_lines = explode("\n", $add);
 
-															array_splice($lines, $line_id - $offset, 0, $new_lines);
+														 array_splice($lines, $line_id - $offset, 0, $new_lines);
 
-															$line_id += count($new_lines);
-															break;
-														case 'after':
-															$new_lines = explode("\n", $add);
+														 $line_id += count($new_lines);
+														 break;
+													  case 'after':
+														 $new_lines = explode("\n", $add);
 
-															array_splice($lines, ($line_id + 1) + $offset, 0, $new_lines);
+														 array_splice($lines, ($line_id + ($multiline ? count($searchlines) : 1)) + $offset, 0, $new_lines);
 
-															$line_id += count($new_lines);
-															break;
-													}
+														 $line_id += count($new_lines);
+														 break;
+												   }
 
-													// Log
-													$log[] = 'LINE: ' . $line_id;
+												   // Log
+												   $log[] = 'LINE: ' . $line_id;
 
-													$status = true;
+												   $status = true;
 												}
-											}
+											 }
 
-											$modification[$key] = implode("\n", $lines);
+											 $modification[$key] = implode("\n", $lines);
 										} else {
-											$search = trim($operation->getElementsByTagName('search')->item(0)->textContent);
+											$search = $operation->getElementsByTagName('search')->item(0)->textContent;
 											$limit = $operation->getElementsByTagName('search')->item(0)->getAttribute('limit');
-											$replace = trim($operation->getElementsByTagName('add')->item(0)->textContent);
+											$quote = $operation->getElementsByTagName('search')->item(0)->getAttribute('quote');											
+											$replace = $operation->getElementsByTagName('add')->item(0)->textContent;
 
+											$log[] = 'ANI REGEX: ' . $search;
+											
 											// Limit
 											if (!$limit) {
 												$limit = -1;
 											}
+
+											// Quote
+											if ($quote == 'true') {
+												$search = preg_quote($search);
+											}
+											
+											$log[] = 'QUOTE ANI REGEX: ' . $search;
 
 											// Log
 											$match = array();
