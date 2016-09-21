@@ -1,35 +1,69 @@
-/system/*
-/image/*
+###################### OPENCART ####################
+
+## Config and Htaccess Files
+/.htaccess
 /config.php
-admin/config.php
-#Readme.txt
+/admin/config.php
 
-#/.cache
-#/.metadata
-#/.project
-#/.settings
-#atlassian*
-#/nbproject
-#/sitemap
-#/.idea
-#/.gitattributes
-#/app/config_sandbox
-#/app/etc/config.php
-#/app/etc/env.php
-#/app/code/Magento/TestModule*
-#/lib/internal/flex/uploader/.actionScriptProperties
-#/lib/internal/flex/uploader/.flexProperties
-#/lib/internal/flex/uploader/.project
-#/lib/internal/flex/uploader/.settings
-#/lib/internal/flex/varien/.actionScriptProperties
-#/lib/internal/flex/varien/.flexLibProperties
-#/lib/internal/flex/varien/.project
-#/lib/internal/flex/varien/.settings
-#/node_modules
-#/.grunt
 
-#/pub/media/*.*
-#!/pub/media/.htaccess
-#/pub/media/catalog/*
-#!/pub/media/catalog/.htaccess
-#/pub/media/customer/*
+## Image Cache Files
+/image/*
+/image/cache/*
+!/image/cache/index.html
+
+
+## System Cache Files
+/system/*
+/system/cache/*
+!/system/cache/index.html
+
+## Vqmod Cache Files
+/vqmod/mods.cache
+/vqmod/vqcache/*
+!/image/cache/index.html
+
+
+## System Log Files
+/system/logs/*
+!/system/logs/index.html
+
+## Vqmod Log Files
+#/vqmod/logs/*
+#!/vqmod/logs/.gitkeep
+ 
+## WHY IGNORE THESE??? COMMENT OUT FOR NOW
+
+## Templates Files
+#/image/templates/*
+#/image/templates/default.jpg
+#
+## Download Files
+#/download/*
+#!/download/index.html
+
+
+
+###################### WINDOWS #####################
+
+## Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+## Folder config file
+Desktop.ini
+
+## Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+## Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+
+
+######### NEVER IGNORE PURPOSEFULLY KEPT FOLDERS #########
+# Must put a ".gitkeep" file in empty folders you want to keep
+!/*/.gitkeep
+
