@@ -17,6 +17,8 @@ class ControllerMarketingContact extends Controller {
 		$data['text_affiliate_all'] = $this->language->get('text_affiliate_all');
 		$data['text_affiliate'] = $this->language->get('text_affiliate');
 		$data['text_product'] = $this->language->get('text_product');
+		$data['text_adalynn_subscribers'] = $this->language->get('text_adalynn_subscribers');
+		
 		$data['text_loading'] = $this->language->get('text_loading');
 
 		$data['entry_store'] = $this->language->get('entry_store');
@@ -67,6 +69,7 @@ class ControllerMarketingContact extends Controller {
 	}
 
 	public function send() {
+
 		$this->load->language('marketing/contact');
 
 		$json = array();
@@ -208,6 +211,14 @@ class ControllerMarketingContact extends Controller {
 								$emails[] = $result['email'];
 							}
 						}
+					case 'adalynn_subscribers':
+							$this->load->model('emails/newsletter');
+							$email_total = $this->model_emails_newsletter->getTotalEmailSubscriber(1);
+							$results = $this->model_emails_newsletter->getEmailSubscribers(1);
+
+							foreach ($results as $result) {
+								$emails[] = $result['subscriber_emailid'];
+							}
 						break;
 				}
 
@@ -234,7 +245,6 @@ class ControllerMarketingContact extends Controller {
 					$message .= '  </head>' . "\n";
 					$message .= '  <body>' . html_entity_decode($this->request->post['message'], ENT_QUOTES, 'UTF-8') . '</body>' . "\n";
 					$message .= '</html>' . "\n";
-
 					foreach ($emails as $email) {
 						if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 							$mail = new Mail();

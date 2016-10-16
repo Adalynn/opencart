@@ -42,6 +42,7 @@
                 <option value="affiliate_all"><?php echo $text_affiliate_all; ?></option>
                 <option value="affiliate"><?php echo $text_affiliate; ?></option>
                 <option value="product"><?php echo $text_product; ?></option>
+                <option value="adalynn_subscribers"><?php echo $text_adalynn_subscribers; ?></option>
               </select>
             </div>
           </div>
